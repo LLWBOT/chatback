@@ -21,8 +21,8 @@ const io = new Server(server, {
 });
 
 // Replace with your MongoDB Atlas URI
-const MONGODB_URI = '<YOUR_MONGODB_URI>';
-const JWT_SECRET = '<YOUR_JWT_SECRET>'; // Use a long, random string
+const MONGODB_URI = '<mongodb+srv://djllw57:uGrsBNFx9xz3FmAw@cluster0.9nfcods.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0>';
+const JWT_SECRET = '<RCk3WsM1iRsjxJD3cQE2OMIdpwRO4Dwz>'; // Use a long, random string
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
