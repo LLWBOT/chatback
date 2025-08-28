@@ -13,23 +13,27 @@ const authMiddleware = require('./middleware/authMiddleware');
 const app = express();
 const server = http.createServer(app);
 
+// Use your actual Netlify URL for CORS
+const FRONTEND_URL = 'https://llwchat.netlify.app';
+
 const io = new Server(server, {
   cors: {
-    origin: '*',
+    origin: FRONTEND_URL,
     methods: ['GET', 'POST']
   }
 });
 
-// Replace with your MongoDB Atlas URI
-const MONGODB_URI = '<mongodb+srv://djllw57:uGrsBNFx9xz3FmAw@cluster0.9nfcods.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0>';
-const JWT_SECRET = '<RCk3WsM1iRsjxJD3cQE2OMIdpwRO4Dwz>'; // Use a long, random string
+// Your MongoDB Atlas URI and JWT secret
+// IMPORTANT: Remove the < and > around the strings
+const MONGODB_URI = 'mongodb+srv://djllw57:uGrsBNFx9xz3FmAw@cluster0.9nfcods.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const JWT_SECRET = 'RCk3WsM1iRsjxJD3cQE2OMIdpwRO4Dwz';
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: FRONTEND_URL }));
 
 // API routes
 app.use('/api', authRoutes);
