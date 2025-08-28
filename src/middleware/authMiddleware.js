@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = '<YOUR_JWT_SECRET>'; // Use the same secret as in server.js
+const JWT_SECRET = 'RCk3WsM1iRsjxJD3cQE2OMIdpwRO4Dwz'; // Use the same secret as in server.js
 
 module.exports = (req, res, next) => {
   const token = req.header('Authorization')?.replace('Bearer ', '');
