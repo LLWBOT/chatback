@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 
 const User = require('../models/User');
 
-const JWT_SECRET = '<YOUR_JWT_SECRET>'; // Use the same secret as in server.js
+const JWT_SECRET = 'RCk3WsM1iRsjxJD3cQE2OMIdpwRO4Dwz'; // Use the same secret as in server.js
 
 // @route   POST /api/register
 router.post('/register', async (req, res) => {
